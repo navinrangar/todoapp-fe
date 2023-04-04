@@ -1,8 +1,9 @@
 import { createSelector } from "reselect";
 import { State } from "../store";
-import { ObjectKeys } from "../utils";
+import { ObjectKeys, ObjectToArray } from "../utils";
 
 const todoStateSelector = (state: State) => state.todos;
+const todoTaskStateSelector = createSelector(todoStateSelector, (todoState: any) => todoState.tasks);
 
 export const todoArrayStateSelector = (state: State) => Object.keys(state.todos.tasks).map((id) => state.todos.tasks[id as any])
 
@@ -17,6 +18,7 @@ export const todoListSelector = (state: State) => {
 
 export const todoListSelector2 = createSelector(todoArrayStateSelector, (todoState) => todoState.filter((todo: any) => !todo.done));
 
+export const allTodoTaskListSelector = createSelector(todoTaskStateSelector, (taskState: any) => Object.keys(taskState).map((id: string) => taskState[id]))
 
 //doneListSelectors
 
@@ -55,17 +57,6 @@ export const todoForLaterSelector = (state: State) => {
     })
     return forLaterTodo;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 
 export const userStateSelector = (state: State) => Object.keys(state.loggedInUser).map((id) => state.loggedInUser.id);

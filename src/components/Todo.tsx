@@ -1,4 +1,4 @@
-import { DoneComponent, ForLaterComponent, PriorityComponent} from "./TodoList";
+import { DoneComponent, ForLaterComponent, PriorityComponent, TodoComponent} from "./TodoList";
 import { TodoMaker } from "./TodoCreator";
 import Header from "./Header";
 import TodoFilter from "./TodoFilter";
@@ -11,12 +11,12 @@ const Todo = () => {
     return (
         <div className="flex flex-col items-center justify-center h-screen">
             <Header/>
-            {/* <TodoComponent/> */}
+            <TodoComponent/>
             <TodoFilter/>
             <PriorityComponent/>
             <TodoMaker />
             <DoneComponent/>
-            <ForLaterComponent/>
+            {/* <ForLaterComponent/> */}
         </div>
 
     )

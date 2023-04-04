@@ -3,7 +3,9 @@ export interface Todo {
     name: string
     done: boolean
     priority: string
-    due_date: string
+    dueDate: string
+    forLater?: string
+    routineTask?: string
 }
 
 export interface User {

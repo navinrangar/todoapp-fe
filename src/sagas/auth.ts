@@ -12,5 +12,6 @@ export function* signup(action: AnyAction): Generator<any, any, any> {
 export function* signIn(action: AnyAction): Generator<any, any, any> {
         const body = action.payload;
         const data = yield call(signinService, body)
+        localStorage.setItem('access_token', data.token);
         yield put(signedIn(data.user));
 }

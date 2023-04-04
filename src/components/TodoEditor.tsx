@@ -11,11 +11,11 @@ interface Props {
 
 const TodoEditor = ({ onEditSubmit, todoToEdit, setFormClose }: Props) => {
 
-    const { id, name, priority, due_date } = todoToEdit;
+    const { id, name, priority, dueDate } = todoToEdit;
 
     const [newName, setNewName] = useState<string>(name);
     const [newPriority, setNewPriority] = useState<string>(priority);
-    const [newDueDate, setNewDueDate] = useState<string>(due_date);
+    const [newDueDate, setNewDueDate] = useState<string>(dueDate);
 
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
