@@ -5,9 +5,10 @@ import { Todo, TodoFilters } from "../models/todo";
 export interface TodoState {
     tasks: { [id: number]: Todo }
     filters: TodoFilters
+    isLoggedIn: boolean
 }
 
-export const initialTodoState = { tasks: {}, filters: { level: 'high', due_date: '2023-03-14' } };
+export const initialTodoState = { tasks: {}, filters: { level: 'high', due_date: '2023-03-14' }, isLoggedIn: false};
 
 export const todoReducer: Reducer<TodoState> = (state = initialTodoState, action: AnyAction) => {
     switch (action.type) {

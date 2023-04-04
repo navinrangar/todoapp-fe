@@ -1,5 +1,5 @@
 import { connect} from 'react-redux';
-import { AppState } from '../store';
+import { State } from '../store';
 import { todoDelete, todoStatusChange } from '../actions/todo';
 import { Todo } from '../models/todo';
 import { doneListSelector, todoFilterSelector, todoForLaterSelector, todoListSelector } from '../selectors/todo';
@@ -32,11 +32,11 @@ function TodoList({ todos, doneList, onStatusChange, onTodoDelete }: TodoListPro
 
 export default TodoList
 
-const todoMapper = (s: AppState) => (
+const todoMapper = (s: State) => (
     { todos: todoListSelector(s), doneList: false }
 )
 
-const doneMapper = (s: AppState) => (
+const doneMapper = (s: State) => (
     { todos: doneListSelector(s), doneList: true }
 )
 
@@ -45,11 +45,11 @@ const dispatchMapper = {
     onTodoDelete: todoDelete,
 }
 
-const mapPriorityStateToProps = (s: AppState) => {
+const mapPriorityStateToProps = (s: State) => {
     return { todos: todoFilterSelector(s), doneList: false}
 }
 
-const mapForLaterStateToProps = (s: AppState) => {
+const mapForLaterStateToProps = (s: State) => {
     return {todos: todoForLaterSelector(s), doneList: false}
 }
 
